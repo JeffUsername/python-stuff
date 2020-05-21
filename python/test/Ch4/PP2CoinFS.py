@@ -14,5 +14,6 @@ for experimentNumber in range(10000):
         #print(t)
         if t == '[0, 0, 0, 0, 0, 0]' or t == '[1, 1, 1, 1, 1, 1]':
             numberOfStreaks = numberOfStreaks + 1
+            j+=5
         j+=1
-print('Chance of streak: %s%%' % (numberOfStreaks / 10000))
+print('Chance of streak: %s%%' % (numberOfStreaks / 1000000))
