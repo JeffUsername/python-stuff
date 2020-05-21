@@ -8,7 +8,7 @@ board = {'1a': 'bking','2a': 'bqueen','3a': 'brook','4a': 'brook',
 '5e': 'wpawn','6e': 'wpawn','7e': 'wpawn','8e': 'wpawn',
 '1f': '','2f': '','3f': '','4f': '','5f': '','6f': '','7f': '','8f': '',
 '1g': '','2g': '','3g': '','4g': '','5g': '','6g': '','7g': '','8g': '',
-'1h': '','2h': '','3h': '','4h': '','5h': '','6h': '','7h': '','8h': 'uno card',}
+'1h': '','2h': '','3h': '','4h': '','5h': '','6h': '','7h': '','8h': '',}
 
 
 def chesstester(game):
@@ -27,12 +27,8 @@ def chesstester(game):
     wpC = 0
     boardTest = True
     for i,j in game.items():
-        if j  !=  '':
             #print('echo ' + i + ' ' + j)
-            Tcounter += 1
-            if Tcounter >32:   #check for too many pieces
-                boardTest = testfail("too many peices!!")
-                #break
+            
             if ord(i[1]) > 104 or ord(i[1]) < 97:   #y valuse off board
                 boardTest = testfail("OFF THE BOARD!!")
                 break
@@ -75,6 +71,11 @@ def chesstester(game):
             if wpC > 8 or bpC > 8: #check pawns
                  boardTest = testfail("Too many Pawns")
                  break
+            if j  !=  '':
+                Tcounter += 1
+            if Tcounter >32:   #check for too many pieces
+                boardTest = testfail("too many peices!!")
+                #break
             
     #print('bp ' + str(wpC) + ' : ' + 'wp' + str(wpC))
     if boardTest == True:
