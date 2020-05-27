@@ -25,6 +25,7 @@ def chesstester(game):
     wbC = 0
     bpC = 0 
     wpC = 0
+    ec = 0
     boardTest = True
     for i,j in game.items():
             #print('echo ' + i + ' ' + j)
@@ -38,28 +39,34 @@ def chesstester(game):
             #cases
             if j == 'bking': #oh god why
                 bkC += 1
-            if j == 'wking':
+            elif j == 'wking':
                 wkC += 1
-            if j == 'bqueen':
+            elif j == 'bqueen':
                 bqC += 1
-            if j == 'wqueen':
+            elif j == 'wqueen':
                 wqC += 1
-            if j == 'brook':
+            elif j == 'brook':
                 brC += 1
-            if j == 'wrook':
+            elif j == 'wrook':
                 wrC += 1
-            if j == 'bknight':
+            elif j == 'bknight':
                 bnC += 1
-            if j == 'wknight':
+            elif j == 'wknight':
                 wnC += 1
-            if j == 'bbishop':
+            elif j == 'bbishop':
                 bbC += 1
-            if j == 'wbishop':
+            elif j == 'wbishop':
                 wbC += 1
-            if j == 'bpawn':
+            elif j == 'bpawn':
                 bpC += 1
-            if j == 'wpawn':
+            elif j == 'wpawn':
                 wpC += 1
+            elif j == '':
+                ec += 1
+            else:
+                boardTest = testfail('You used a monoply piece')
+                break
+
 
             #final check
             if bkC > 1 or wkC > 1 or wqC > 1 or bqC > 1: #check royals
@@ -73,7 +80,7 @@ def chesstester(game):
                  break
             if j  !=  '':
                 Tcounter += 1
-            if Tcounter >32:   #check for too many pieces
+            if Tcounter >32 or ec >32:   #check for too many pieces
                 boardTest = testfail("too many peices!!")
                 #break
             
