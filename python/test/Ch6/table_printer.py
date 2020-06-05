@@ -17,7 +17,6 @@ def printT_Helper(tab, h, w, lLen): #recursive helper
         z =  printT_Helper(tab, h, w-1, lLen) #rec call
         #print(z)
         t = t.rjust(((z-lLen)+ lLen), '-')
-        #t+= '\n'
         print(t)
         if lLen < z:
             lLen = z
