@@ -1,0 +1,1 @@
+@pyw.exe C:\fuckwindows\mcb.pyw %*
